@@ -2,7 +2,10 @@ const save_button = document.querySelector("#save-btn");
 const title_input = document.querySelector("#title");
 const list = document.querySelector(".list");
 
+const todo_list = [];
+
 function makeItem(title){
+    //create element div with class item
     const item = document.createElement("div");
     item.classList.add("item");
     
@@ -23,6 +26,12 @@ function makeItem(title){
 function clearInput(){
     title_input.value = "";  
 }
+function syncStorage(title){
+
+    todo_list.push(title);
+    const next_list = JSON.stringify(todo_list);
+    localStorage.setItem("my_list", next_list);
+}
 
 save_button.addEventListener("click", () => {
  const value = title_input.value;
@@ -30,10 +39,14 @@ save_button.addEventListener("click", () => {
 if(value=== ""){
     alert("You should write a text");
 }else {
-    //create element div with class item
+    
  
+  syncStorage(value);
   makeItem(value);
   clearInput(value);
+//   console.log(todo_list) ;
   
+//   console.log(my_collection);
+
 }
 })
