@@ -21,7 +21,7 @@
       .list {
         padding: 1rem 0;
       }
-      .list .item {
+      .list .todo {
         padding: 0.5rem 0;
         border-bottom: 1px solid white;
       }
@@ -32,6 +32,13 @@
       <div class="form">
         <input type="text" placeholder="Write your todo.."  id="title"/>
         <button id="save-btn">Save</button>
+        <br /><br />
+        Status:
+        <select>
+          <option value="done">Done</option>
+          <option value="done">Todo</option>
+          <option value="done">All</option>
+        </select>
       </div>
       <div class="list">
         <!-- <div class="item">
